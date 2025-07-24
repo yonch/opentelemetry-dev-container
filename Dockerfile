@@ -8,10 +8,10 @@ ENV EBPF_NET_SRC=$HOME/src
 RUN ln -sf /workspace/opentelemetry-network $HOME/src
 
 # for ease of use, add some bash aliases
-RUN echo 'alias apt="sudo apt"' >> /etc/bash.bashrc && \
-    echo 'alias apt-get="sudo apt-get"' >> /etc/bash.bashrc && \
-    echo 'alias apt-cache="sudo apt-cache"' >> /etc/bash.bashrc && \
-    echo 'alias ll="ls -l"' >> /etc/bash.bashrc
+RUN echo 'alias apt="sudo apt"' | sudo tee -a /etc/bash.bashrc && \
+    echo 'alias apt-get="sudo apt-get"' | sudo tee -a  /etc/bash.bashrc && \
+    echo 'alias apt-cache="sudo apt-cache"' | sudo tee -a /etc/bash.bashrc && \
+    echo 'alias ll="ls -l"' | sudo tee -a /etc/bash.bashrc
 
 # Install nvm to manage npm
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | PROFILE="${HOME}/.profile" bash
