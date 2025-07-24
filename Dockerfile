@@ -14,6 +14,9 @@ RUN sudo apt-get update && \
     sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/*
 
+# Create a symbolic link to host .ccache on persistent storage
+RUN ln -sf /workspace/.ccache $HOME/.ccache
+
 # Set the working directory
 WORKDIR /workspace
 
