@@ -8,11 +8,11 @@ ENV EBPF_NET_SRC=$HOME/src
 RUN ln -sf /workspace/opentelemetry-network $HOME/src
 
 # Install Claude CLI and Gemini CLI
-RUN apt-get update && \
-    apt-get install -y -q npm && \
-    npm install -g @anthropic-ai/claude-code @google/gemini-cli && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN sudo apt-get update && \
+    sudo apt-get install -y -q npm && \
+    sudo npm install -g @anthropic-ai/claude-code @google/gemini-cli && \
+    sudo apt-get clean && \
+    sudo rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
 WORKDIR /workspace
