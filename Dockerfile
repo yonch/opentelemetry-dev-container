@@ -7,12 +7,6 @@ ENV EBPF_NET_SRC=$HOME/src
 # Create the symbolic link from $HOME/src to /workspace/opentelemetry-network
 RUN ln -sf /workspace/opentelemetry-network $HOME/src
 
-# Install Claude CLI and Gemini CLI
-RUN sudo apt-get update && \
-    sudo apt-get install -y -q npm && \
-        sudo apt-get clean && \
-    sudo rm -rf /var/lib/apt/lists/*
-
 # Install nvm to manage npm
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | PROFILE="${HOME}/.profile" bash
 
