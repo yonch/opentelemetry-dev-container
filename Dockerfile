@@ -17,7 +17,9 @@ RUN sudo apt-get update && \
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | PROFILE="${HOME}/.profile" bash
 
 # Install node version 20 and claude and gemini
-RUN nvm install 20 && \
+RUN export NVM_DIR="$HOME/.nvm"; \
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; \
+    nvm install 20 && \
     npm install -g @anthropic-ai/claude-code @google/gemini-cli
 
 # Create a symbolic link to host .ccache on persistent storage
