@@ -25,6 +25,12 @@ RUN export NVM_DIR="$HOME/.nvm"; \
 # Create a symbolic link to host .ccache on persistent storage
 RUN ln -sf /workspace/.ccache $HOME/.ccache
 
+# We want podman storage on persistent storage
+RUN mkdir -p /workspace/.local/share/containers/storage/ && \
+    mkdir -p $HOME/.local/share/containers && \
+    rm -rf $HOME/.local/share/containers/storage || true && \
+    ln -sf /workspace/.local/share/containers/storage $HOME/.local/share/containers/storage
+
 # Set the working directory
 WORKDIR /workspace
 
