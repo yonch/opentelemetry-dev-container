@@ -26,8 +26,7 @@ RUN export NVM_DIR="$HOME/.nvm"; \
 RUN ln -sf /workspace/.ccache $HOME/.ccache
 
 # We want podman storage on persistent storage
-RUN mkdir -p /workspace/.local/share/containers/storage/ && \
-    mkdir -p $HOME/.local/share/containers && \
+RUN mkdir -p $HOME/.local/share/containers && \
     rm -rf $HOME/.local/share/containers/storage || true && \
     ln -sf /workspace/.local/share/containers/storage $HOME/.local/share/containers/storage
 
