@@ -5,7 +5,9 @@ FROM docker.io/yonchco/opentelemetry-network-build-tools:latest
 ENV EBPF_NET_SRC=$HOME/src
 
 # Create the symbolic link from $HOME/src to /workspace/opentelemetry-network
-RUN ln -sf /workspace/opentelemetry-network $HOME/src
+RUN ln -sf /workspace/opentelemetry-network $HOME/src && \
+    ln -sf /workspace/out $HOME/out
+
 
 # for ease of use, add some bash aliases
 RUN echo 'alias apt="sudo apt"' | sudo tee -a /etc/bash.bashrc && \
