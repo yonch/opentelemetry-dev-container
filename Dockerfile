@@ -1,5 +1,5 @@
 # Use the OpenTelemetry build container as base
-FROM docker.io/yonchco/opentelemetry-network-build-tools:latest
+FROM docker.io/otel/opentelemetry-network-build-tools:latest
 
 # Set environment variables
 ENV EBPF_NET_SRC=$HOME/src
