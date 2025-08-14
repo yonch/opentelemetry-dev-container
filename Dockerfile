@@ -10,7 +10,7 @@ RUN ln -sf /workspace/opentelemetry-network $HOME/src && \
 
 
 # Install additional packages
-RUN sudo apt-get update && sudo apt-get install -y openssh-server mosh && sudo apt-get clean
+RUN sudo apt-get update && sudo apt-get install -y openssh-server mosh tmux && sudo apt-get clean
 
 # for ease of use, add some bash aliases
 RUN echo 'alias apt="sudo apt"' | sudo tee -a /etc/bash.bashrc && \
