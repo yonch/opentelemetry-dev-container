@@ -6,9 +6,9 @@ ENV EBPF_NET_SRC=$HOME/opentelemetry-network
 
 # Install additional packages
 RUN set -ex; \
-    apt-get update; \
-    apt-get install -y -q openssh-server mosh tmux jq; \
-    apt-get clean && find /var/lib/apt/lists -type f -delete
+    sudo apt-get update; \
+    sudo apt-get install -y -q openssh-server mosh tmux jq; \
+    sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
 
 # # for ease of use, add some bash aliases
 # RUN echo 'alias apt="sudo apt"' | sudo tee -a /etc/bash.bashrc && \
@@ -27,10 +27,10 @@ RUN set -ex; \
 
 # Install claude
 RUN set -ex; \
-    apt-get update; \
-    apt-get install -y -q npm; \
-    npm install -g @anthropic-ai/claude-code; \
-    apt-get clean && find /var/lib/apt/lists -type f -delete
+    sudo apt-get update; \
+    sudo apt-get install -y -q npm; \
+    sudo npm install -g @anthropic-ai/claude-code; \
+    sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
 WORKDIR /home/user
